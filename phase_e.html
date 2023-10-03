@@ -18,6 +18,35 @@
 
 		<br/><br/>
 
+		<div id="movingTool" class="query">
+
+
+			<h2>Need to move? Use our handy-dandy tool!</h2>
+			<h4>Get some basic info about available cars in your area.</h4>
+
+			<div class="map" id="movingtool-map" style="width: 500px; height: 300;"></div>
+
+			<form name="movingtool_listings" action="getListingsAndModelsForState.php" 
+				method="post" target="tool-results1">
+				<input class="movingtool-state-input" id="movingtool-state-input-listings" type="hidden" name="state"> <br/>
+			</form>
+
+			<form name="movingtool_avgmpg" action="getAverageCombinedMPGForState.php"
+				method="post" target="tool-results2">
+				<input class="movingtool-state-input" id="movingtool-state-input-avgmpg" type="hidden" name="state"> <br/>
+			</form>
+
+			<form name="movingtool_14" action="prepare14.php"
+				method="post" target="tool-results3">
+				<input class="movingtool-state-input" id="movingtool-state-input-14" type="hidden" name="state"> <br/>
+			</form>
+
+			<span>Listings <iframe class="result-panel" name="tool-results1" width=200px height=200px></iframe></span>
+			<span>Avg. MPG <iframe class="result-panel" name="tool-results2" width=200px height=200px></iframe></span>
+			<span>Hours-to-buy <iframe class="result-panel" name="tool-results3" width=200px height=200px></iframe></span>
+
+		</div>
+
 		<div id="showListings" class="query">
 			<h2> Get all listings for state</h2>
 			<h4>Click a state on the map or enter its name in the text box to see
@@ -56,11 +85,13 @@
 			<h4>Select a state to find how many hours of minimum wage labor
 				it would take to afford the cheapest car listed there, 
 				according to the state's minimum wage</h4>
-				<form name="fourteen" action="prepare14.php" method="post"
+			<form name="fourteen" action="prepare14.php" method="post"
 				target="frame14">
 				State: <input id="hours-to-buy-input" type="text" name="state"> <br/>
 				<input type="submit">
 			</form>
+			<div id="hours-to-buy-map" style="width: 500px; height: 300px;"></div>
+			<iframe name="frame14"></iframe>
 		</div>
 
 		<br/><br/>
@@ -214,14 +245,6 @@
 			<iframe name="frame13" style="width: 600px;">
 			</iframe>
 			<br/><br/>
-		</div>
-		
-		<br/><br/>
-
-		<div>
-			<div id="hours-to-buy-map" style="width: 500px; height: 300px;"></div>
-			<iframe name="frame14">
-			</iframe>
 		</div>
 		
 		<br/><br/>
