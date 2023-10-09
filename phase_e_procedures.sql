@@ -7,7 +7,7 @@ DROP PROCEDURE IF EXISTS getListingsAndModelsForState //
 
 CREATE PROCEDURE getListingsAndModelsForState (IN in_state VARCHAR(30))
 BEGIN
-SELECT model, url
+SELECT model, url_
 FROM Listing AS L JOIN Vehicle as V
         ON L.CarID = V.id
         WHERE state_ = in_state;
@@ -151,9 +151,9 @@ DROP PROCEDURE IF EXISTS getMostExpensive //
 
 CREATE PROCEDURE getMostExpensive()
 BEGIN
-SELECT make, model, year_, price, url
+SELECT make, model, year_, price, url_
 FROM Vehicle JOIN
-        (SELECT CarID, MAX(price) AS price, url
+        (SELECT CarID, MAX(price) AS price, url_
         FROM Listing) u
         ON CarID = id;
 END; //
@@ -193,7 +193,7 @@ DROP PROCEDURE IF EXISTS getAverageHighwayMPGForMinWage //
 
 CREATE PROCEDURE getAverageHighwayMPGForMinWage()
 BEGIN
-SELECT V.make AS make, V.model AS model, url, AVG(highwayMPG) AS averageHighwayMPG
+SELECT V.make AS make, V.model AS model, url_, AVG(highwayMPG) AS averageHighwayMPG
 FROM Vehicle as V JOIN Listing as L JOIN Region as R JOIN Efficiency_Stats as E
 ON V.id = L.CarID AND L.state_ = R.state_ AND V.model = E.model
 WHERE effMinWage > 10

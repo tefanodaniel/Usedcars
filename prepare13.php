@@ -17,7 +17,7 @@ if ($result = $conn->query("CALL getMostExpensive();")) {
                 echo "<td>".$row["make"]."</td>";
                 echo "<td>".$row["model"]."</td>";
 		        echo "<td>".$row["year_"]."</td>";
-                echo "<td>".$row["url"]."</td>";
+                echo "<td>".$row["url_"]."</td>";
                 echo "</tr>";
 		
             }

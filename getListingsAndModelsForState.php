@@ -21,7 +21,7 @@
                 foreach($result as $row) {
                     echo "<tr>";
                     echo "<td>".$row["model"]."</td>";
-                    echo "<td>".$row["url"]."</td>";
+                    echo "<td>".$row["url_"]."</td>";
                     echo "</tr>";
                 }
             }

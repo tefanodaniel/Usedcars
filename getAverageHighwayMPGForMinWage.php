@@ -20,7 +20,7 @@
                     echo "<td>".$row["make"]."</td>";
                     echo "<td>".$row["model"]."</td>";
                     echo "<td>".$row["averagehighwaympg"]."</td>";
-                    echo "<td>".$row["url"]."</td>";
+                    echo "<td>".$row["url_"]."</td>";
                     echo "</tr>";
                 }
             }
