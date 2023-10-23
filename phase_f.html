@@ -1,0 +1,68 @@
+<script src="us-map-1.0.1/lib/jquery-3.6.0.min.js"></script>
+<script src="us-map-1.0.1/lib/raphael.js"></script>
+<script src="us-map-1.0.1/jquery.usmap.js"></script>
+<script src="jquery.canvasjs.min.js"></script>
+<script src="map.js"></script>
+<script src="show-ecograph.js"></script>
+<script src="show-wagegraph.js"></script>
+<script src="show-pricetrendsgraph.js"></script>
+<html>
+	
+   <head>
+		<title>UsedCars</title>    
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+   <body>
+		<!-- 
+			<form name="phpTest" action="open.php" method="post">
+			<h3>Test connection to database</h3>
+			<input type="submit" value="Connect">
+		</form> -->
+		<div class="wrapper">
+
+			<div class="header uc-header">
+				<h1 >Welcome to UsedCars.com!</h1>
+			</div>
+
+			<div class="main" id="movingtool-map" style="width: 500px; height: 300;"></div>
+
+			<div class="aside aside-1">
+				<button>Shop by Manufacturer</button>
+				<button>Shop by Model</button>
+				<button>Shop by Year</button>
+				<button>Shop by Political Affiliation</button>
+			</div>
+
+			<div class="aside aside-2" >
+				<h2>Need to move? Use our handy-dandy tool!</h2>
+				<h4>Get some basic info about available cars in your area.</h4>
+
+				<p>Listings</p> 
+				<form name="movingtool_listings" action="getListingsAndModelsForState.php" 
+				method="post" target="tool-results1">
+				<input class="movingtool-state-input" id="movingtool-state-input-listings" type="hidden" name="state"> <br/>
+				</form>
+
+				<iframe class="result-panel" name="tool-results1" width=200px height=200px></iframe>
+
+				<p>Avg. MPG</p>
+				<form name="movingtool_avgmpg" action="getAverageCombinedMPGForState.php"
+				method="post" target="tool-results2">
+				<input class="movingtool-state-input" id="movingtool-state-input-avgmpg" type="hidden" name="state"> <br/>
+				</form>
+
+				<iframe class="result-panel" name="tool-results2" width=200px height=200px></iframe>
+
+				<p>Hours-to-buy</p> 
+				<form name="movingtool_14" action="prepare14.php"
+				method="post" target="tool-results3">
+				<input class="movingtool-state-input" id="movingtool-state-input-14" type="hidden" name="state"> <br/>
+				</form>
+
+				<iframe class="result-panel" name="tool-results3" width=200px height=200px></iframe>
+			</div>
+			
+			<footer class="footer">Where can I find a Chevy?</footer>
+		</div>
+	</body>
+</html>

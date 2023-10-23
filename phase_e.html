@@ -7,45 +7,51 @@
 <script src="show-wagegraph.js"></script>
 <script src="show-pricetrendsgraph.js"></script>
 <html>
-   <head><link rel="stylesheet" href="style.css"></head>
+	
+   <head>
+		<title>UsedCars</title>    
+		<link rel="stylesheet" href="style.css">
+	</head>
    <body>
 	<div class="grid-container">
 
-		<form name="phpTest" action="open.php" method="post">
+		<!-- 
+			<form name="phpTest" action="open.php" method="post">
 			<h3>Test connection to database</h3>
 			<input type="submit" value="Connect">
-		</form>
+		</form> -->
 
 		<br/><br/>
 
-		<div id="movingTool" class="query">
+		<h1>Welcome to UsedCars.com!</h1>
 
+			<div class="mt-container">
+				<div class="mt-map" id="movingtool-map" style="width: 500px; height: 300;"></div>
+		
+				<div class="mt-panel">
+					<form name="movingtool_listings" action="getListingsAndModelsForState.php" 
+					method="post" target="tool-results1">
+					<input class="movingtool-state-input" id="movingtool-state-input-listings" type="hidden" name="state"> <br/>
+					</form>
 
-			<h2>Need to move? Use our handy-dandy tool!</h2>
-			<h4>Get some basic info about available cars in your area.</h4>
+					<form name="movingtool_avgmpg" action="getAverageCombinedMPGForState.php"
+						method="post" target="tool-results2">
+						<input class="movingtool-state-input" id="movingtool-state-input-avgmpg" type="hidden" name="state"> <br/>
+					</form>
 
-			<div class="map" id="movingtool-map" style="width: 500px; height: 300;"></div>
+					<form name="movingtool_14" action="prepare14.php"
+						method="post" target="tool-results3">
+						<input class="movingtool-state-input" id="movingtool-state-input-14" type="hidden" name="state"> <br/>
+					</form>
 
-			<form name="movingtool_listings" action="getListingsAndModelsForState.php" 
-				method="post" target="tool-results1">
-				<input class="movingtool-state-input" id="movingtool-state-input-listings" type="hidden" name="state"> <br/>
-			</form>
+					<h2>Need to move? Use our handy-dandy tool!</h2>
+					<h4>Get some basic info about available cars in your area.</h4>
 
-			<form name="movingtool_avgmpg" action="getAverageCombinedMPGForState.php"
-				method="post" target="tool-results2">
-				<input class="movingtool-state-input" id="movingtool-state-input-avgmpg" type="hidden" name="state"> <br/>
-			</form>
-
-			<form name="movingtool_14" action="prepare14.php"
-				method="post" target="tool-results3">
-				<input class="movingtool-state-input" id="movingtool-state-input-14" type="hidden" name="state"> <br/>
-			</form>
-
-			<span>Listings <iframe class="result-panel" name="tool-results1" width=200px height=200px></iframe></span>
-			<span>Avg. MPG <iframe class="result-panel" name="tool-results2" width=200px height=200px></iframe></span>
-			<span>Hours-to-buy <iframe class="result-panel" name="tool-results3" width=200px height=200px></iframe></span>
-
-		</div>
+					<span>Listings <iframe class="result-panel" name="tool-results1" width=200px height=200px></iframe></span>
+					<span>Avg. MPG <iframe class="result-panel" name="tool-results2" width=200px height=200px></iframe></span>
+					<span>Hours-to-buy <iframe class="result-panel" name="tool-results3" width=200px height=200px></iframe></span>
+				</div>
+			</div>
 
 		<div id="showListings" class="query">
 			<h2> Get all listings for state</h2>
